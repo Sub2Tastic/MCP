@@ -1,0 +1,99 @@
+package net.minecraft.entity.ai;
+
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.world.World;
+
+public class EntityAIOcelotAttack extends EntityAIBase
+{
+    World world;
+    EntityLiving entity;
+    EntityLivingBase target;
+    int attackCountdown;
+
+    public EntityAIOcelotAttack(EntityLiving theEntityIn)
+    {
+        this.entity = theEntityIn;
+        this.world = theEntityIn.world;
+        this.func_75248_a(3);
+    }
+
+    /**
+     * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
+     * method as well.
+     */
+    public boolean shouldExecute()
+    {
+        EntityLivingBase entitylivingbase = this.entity.getAttackTarget();
+
+        if (entitylivingbase == null)
+        {
+            return false;
+        }
+        else
+        {
+            this.target = entitylivingbase;
+            return true;
+        }
+    }
+
+    /**
+     * Returns whether an in-progress EntityAIBase should continue executing
+     */
+    public boolean shouldContinueExecuting()
+    {
+        if (!this.target.isAlive())
+        {
+            return false;
+        }
+        else if (this.entity.getDistanceSq(this.target) > 225.0D)
+        {
+            return false;
+        }
+        else
+        {
+            return !this.entity.getNavigator().noPath() || this.shouldExecute();
+        }
+    }
+
+    /**
+     * Reset the task's internal state. Called when this task is interrupted by another one
+     */
+    public void resetTask()
+    {
+        this.target = null;
+        this.entity.getNavigator().clearPath();
+    }
+
+    /**
+     * Keep ticking a continuous task that has already been started
+     */
+    public void tick()
+    {
+        this.entity.getLookController().setLookPositionWithEntity(this.target, 30.0F, 30.0F);
+        double d0 = (double)(this.entity.field_70130_N * 2.0F * this.entity.field_70130_N * 2.0F);
+        double d1 = this.entity.getDistanceSq(this.target.posX, this.target.getBoundingBox().minY, this.target.posZ);
+        double d2 = 0.8D;
+
+        if (d1 > d0 && d1 < 16.0D)
+        {
+            d2 = 1.33D;
+        }
+        else if (d1 < 225.0D)
+        {
+            d2 = 0.6D;
+        }
+
+        this.entity.getNavigator().tryMoveToEntityLiving(this.target, d2);
+        this.attackCountdown = Math.max(this.attackCountdown - 1, 0);
+
+        if (d1 <= d0)
+        {
+            if (this.attackCountdown <= 0)
+            {
+                this.attackCountdown = 20;
+                this.entity.attackEntityAsMob(this.target);
+            }
+        }
+    }
+}

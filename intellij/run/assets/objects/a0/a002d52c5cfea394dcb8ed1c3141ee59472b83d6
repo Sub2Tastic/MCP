@@ -1,0 +1,21 @@
+{
+    "language.code": "alg_de",
+    "language.name": "Oschtallgaierisch",
+    "language.region": "Allgai",
+    "mco.configure.world.buttons.edit": "Eischtellunga",
+    "mco.configure.world.edit.subscreen.inspiration": "A baar Oischtellunga sin deaktiviert, da deine aktuelle Welt a Inschpiration isch",
+    "mco.configure.world.settings.title": "Eischtellunga",
+    "mco.configure.worlds.title": "Welta",
+    "mco.gui.ok": "Ok",
+    "mco.reset.world.inspiration": "Inschpiration",
+    "mco.selectServer.close": "Schlia\u00dfa",
+    "mco.selectServer.configure": "Realm konfiguriara",
+    "mco.selectServer.expiredSubscribe": "Abonniera",
+    "mco.selectServer.leave": "Realm verl\u00e5ssa",
+    "mco.selectServer.play": "Schpiela",
+    "mco.terms.buttons.agree": "Zuaschtimma",
+    "mco.terms.buttons.disagree": "Ablehna",
+    "mco.terms.sentence.1": "I nimm dia Minecraft Realms",
+    "mco.terms.sentence.2": "Nutzungsbedingunga \u00e5",
+    "mco.terms.title": "Realms Nutzungsbedingunga"
+}

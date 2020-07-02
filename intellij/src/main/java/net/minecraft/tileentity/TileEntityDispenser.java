@@ -1,0 +1,143 @@
+package net.minecraft.tileentity;
+
+import java.util.Random;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.ContainerDispenser;
+import net.minecraft.inventory.ItemStackHelper;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.NonNullList;
+import net.minecraft.util.datafix.DataFixer;
+import net.minecraft.util.datafix.FixTypes;
+import net.minecraft.util.datafix.walkers.ItemStackDataLists;
+
+public class TileEntityDispenser extends TileEntityLockableLoot
+{
+    private static final Random RNG = new Random();
+    private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(9, ItemStack.EMPTY);
+
+    /**
+     * Returns the number of slots in the inventory.
+     */
+    public int getSizeInventory()
+    {
+        return 9;
+    }
+
+    public boolean isEmpty()
+    {
+        for (ItemStack itemstack : this.stacks)
+        {
+            if (!itemstack.isEmpty())
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public int getDispenseSlot()
+    {
+        this.fillWithLoot((EntityPlayer)null);
+        int i = -1;
+        int j = 1;
+
+        for (int k = 0; k < this.stacks.size(); ++k)
+        {
+            if (!((ItemStack)this.stacks.get(k)).isEmpty() && RNG.nextInt(j++) == 0)
+            {
+                i = k;
+            }
+        }
+
+        return i;
+    }
+
+    /**
+     * Add the given ItemStack to this Dispenser. Return the Slot the Item was placed in or -1 if no free slot is
+     * available.
+     */
+    public int addItemStack(ItemStack stack)
+    {
+        for (int i = 0; i < this.stacks.size(); ++i)
+        {
+            if (((ItemStack)this.stacks.get(i)).isEmpty())
+            {
+                this.setInventorySlotContents(i, stack);
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public String func_70005_c_()
+    {
+        return this.hasCustomName() ? this.field_190577_o : "container.dispenser";
+    }
+
+    public static void func_189678_a(DataFixer p_189678_0_)
+    {
+        p_189678_0_.func_188258_a(FixTypes.BLOCK_ENTITY, new ItemStackDataLists(TileEntityDispenser.class, new String[] {"Items"}));
+    }
+
+    public void read(NBTTagCompound compound)
+    {
+        super.read(compound);
+        this.stacks = NonNullList.<ItemStack>withSize(this.getSizeInventory(), ItemStack.EMPTY);
+
+        if (!this.checkLootAndRead(compound))
+        {
+            ItemStackHelper.loadAllItems(compound, this.stacks);
+        }
+
+        if (compound.contains("CustomName", 8))
+        {
+            this.field_190577_o = compound.getString("CustomName");
+        }
+    }
+
+    public NBTTagCompound write(NBTTagCompound compound)
+    {
+        super.write(compound);
+
+        if (!this.checkLootAndWrite(compound))
+        {
+            ItemStackHelper.saveAllItems(compound, this.stacks);
+        }
+
+        if (this.hasCustomName())
+        {
+            compound.putString("CustomName", this.field_190577_o);
+        }
+
+        return compound;
+    }
+
+    /**
+     * Returns the maximum stack size for a inventory slot. Seems to always be 64, possibly will be extended.
+     */
+    public int getInventoryStackLimit()
+    {
+        return 64;
+    }
+
+    public String func_174875_k()
+    {
+        return "minecraft:dispenser";
+    }
+
+    public Container func_174876_a(InventoryPlayer p_174876_1_, EntityPlayer p_174876_2_)
+    {
+        this.fillWithLoot(p_174876_2_);
+        return new ContainerDispenser(p_174876_1_, this);
+    }
+
+    protected NonNullList<ItemStack> getItems()
+    {
+        return this.stacks;
+    }
+}

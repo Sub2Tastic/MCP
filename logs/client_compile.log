@@ -1,0 +1,304 @@
+src\minecraft\net\minecraft\network\NetworkManager.java:19: warning: [deprecation] LocalEventLoopGroup in io.netty.channel.local has been deprecated
+import io.netty.channel.local.LocalEventLoopGroup;
+                             ^
+src\minecraft\net\minecraft\network\NetworkSystem.java:16: warning: [deprecation] LocalEventLoopGroup in io.netty.channel.local has been deprecated
+import io.netty.channel.local.LocalEventLoopGroup;
+                             ^
+src\minecraft\net\minecraft\world\chunk\storage\AnvilSaveConverter.java:18: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+import net.minecraft.util.text.translation.I18n;
+                                          ^
+src\minecraft\net\minecraft\network\NetworkManager.java:19: warning: [deprecation] LocalEventLoopGroup in io.netty.channel.local has been deprecated
+import io.netty.channel.local.LocalEventLoopGroup;
+                             ^
+src\minecraft\net\minecraft\network\NetworkSystem.java:16: warning: [deprecation] LocalEventLoopGroup in io.netty.channel.local has been deprecated
+import io.netty.channel.local.LocalEventLoopGroup;
+                             ^
+src\minecraft\net\minecraft\world\chunk\storage\AnvilSaveConverter.java:18: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+import net.minecraft.util.text.translation.I18n;
+                                          ^
+src\minecraft\net\minecraft\network\NetworkManager.java:19: warning: [deprecation] LocalEventLoopGroup in io.netty.channel.local has been deprecated
+import io.netty.channel.local.LocalEventLoopGroup;
+                             ^
+src\minecraft\net\minecraft\network\NetworkSystem.java:16: warning: [deprecation] LocalEventLoopGroup in io.netty.channel.local has been deprecated
+import io.netty.channel.local.LocalEventLoopGroup;
+                             ^
+src\minecraft\net\minecraft\world\chunk\storage\AnvilSaveConverter.java:18: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+import net.minecraft.util.text.translation.I18n;
+                                          ^
+src\minecraft\net\minecraft\item\ItemStack.java:663: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+                return I18n.func_74838_a(nbttagcompound.getString("LocName"));
+                       ^
+src\minecraft\net\minecraft\item\ItemStack.java:663: warning: [deprecation] func_74838_a(String) in I18n has been deprecated
+                return I18n.func_74838_a(nbttagcompound.getString("LocName"));
+                           ^
+src\minecraft\net\minecraft\item\ItemStack.java:793: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+                        list.add(I18n.func_74837_a("item.color", String.format("#%06X", nbttagcompound1.getInt("color"))));
+                                 ^
+src\minecraft\net\minecraft\item\ItemStack.java:793: warning: [deprecation] func_74837_a(String,Object...) in I18n has been deprecated
+                        list.add(I18n.func_74837_a("item.color", String.format("#%06X", nbttagcompound1.getInt("color"))));
+                                     ^
+src\minecraft\net\minecraft\item\ItemStack.java:797: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+                        list.add(TextFormatting.ITALIC + I18n.func_74838_a("item.dyed"));
+                                                         ^
+src\minecraft\net\minecraft\item\ItemStack.java:797: warning: [deprecation] func_74838_a(String) in I18n has been deprecated
+                        list.add(TextFormatting.ITALIC + I18n.func_74838_a("item.dyed"));
+                                                             ^
+src\minecraft\net\minecraft\item\ItemStack.java:823: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+                list.add(I18n.func_74838_a("item.modifiers." + entityequipmentslot.getName()));
+                         ^
+src\minecraft\net\minecraft\item\ItemStack.java:823: warning: [deprecation] func_74838_a(String) in I18n has been deprecated
+                list.add(I18n.func_74838_a("item.modifiers." + entityequipmentslot.getName()));
+                             ^
+src\minecraft\net\minecraft\item\ItemStack.java:859: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+                        list.add(" " + I18n.func_74837_a("attribute.modifier.equals." + attributemodifier.func_111169_c(), DECIMALFORMAT.format(d1), I18n.func_74838_a("attribute.name." + (String)entry.getKey())));
+                                                                                                                                                     ^
+src\minecraft\net\minecraft\item\ItemStack.java:859: warning: [deprecation] func_74838_a(String) in I18n has been deprecated
+                        list.add(" " + I18n.func_74837_a("attribute.modifier.equals." + attributemodifier.func_111169_c(), DECIMALFORMAT.format(d1), I18n.func_74838_a("attribute.name." + (String)entry.getKey())));
+                                                                                                                                                         ^
+src\minecraft\net\minecraft\item\ItemStack.java:859: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+                        list.add(" " + I18n.func_74837_a("attribute.modifier.equals." + attributemodifier.func_111169_c(), DECIMALFORMAT.format(d1), I18n.func_74838_a("attribute.name." + (String)entry.getKey())));
+                                       ^
+src\minecraft\net\minecraft\item\ItemStack.java:859: warning: [deprecation] func_74837_a(String,Object...) in I18n has been deprecated
+                        list.add(" " + I18n.func_74837_a("attribute.modifier.equals." + attributemodifier.func_111169_c(), DECIMALFORMAT.format(d1), I18n.func_74838_a("attribute.name." + (String)entry.getKey())));
+                                           ^
+src\minecraft\net\minecraft\item\ItemStack.java:863: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+                        list.add(TextFormatting.BLUE + " " + I18n.func_74837_a("attribute.modifier.plus." + attributemodifier.func_111169_c(), DECIMALFORMAT.format(d1), I18n.func_74838_a("attribute.name." + (String)entry.getKey())));
+                                                                                                                                                                         ^
+src\minecraft\net\minecraft\item\ItemStack.java:863: warning: [deprecation] func_74838_a(String) in I18n has been deprecated
+                        list.add(TextFormatting.BLUE + " " + I18n.func_74837_a("attribute.modifier.plus." + attributemodifier.func_111169_c(), DECIMALFORMAT.format(d1), I18n.func_74838_a("attribute.name." + (String)entry.getKey())));
+                                                                                                                                                                             ^
+src\minecraft\net\minecraft\item\ItemStack.java:863: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+                        list.add(TextFormatting.BLUE + " " + I18n.func_74837_a("attribute.modifier.plus." + attributemodifier.func_111169_c(), DECIMALFORMAT.format(d1), I18n.func_74838_a("attribute.name." + (String)entry.getKey())));
+                                                             ^
+src\minecraft\net\minecraft\item\ItemStack.java:863: warning: [deprecation] func_74837_a(String,Object...) in I18n has been deprecated
+                        list.add(TextFormatting.BLUE + " " + I18n.func_74837_a("attribute.modifier.plus." + attributemodifier.func_111169_c(), DECIMALFORMAT.format(d1), I18n.func_74838_a("attribute.name." + (String)entry.getKey())));
+                                                                 ^
+src\minecraft\net\minecraft\item\ItemStack.java:868: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+                        list.add(TextFormatting.RED + " " + I18n.func_74837_a("attribute.modifier.take." + attributemodifier.func_111169_c(), DECIMALFORMAT.format(d1), I18n.func_74838_a("attribute.name." + (String)entry.getKey())));
+                                                                                                                                                                        ^
+src\minecraft\net\minecraft\item\ItemStack.java:868: warning: [deprecation] func_74838_a(String) in I18n has been deprecated
+                        list.add(TextFormatting.RED + " " + I18n.func_74837_a("attribute.modifier.take." + attributemodifier.func_111169_c(), DECIMALFORMAT.format(d1), I18n.func_74838_a("attribute.name." + (String)entry.getKey())));
+                                                                                                                                                                            ^
+src\minecraft\net\minecraft\item\ItemStack.java:868: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+                        list.add(TextFormatting.RED + " " + I18n.func_74837_a("attribute.modifier.take." + attributemodifier.func_111169_c(), DECIMALFORMAT.format(d1), I18n.func_74838_a("attribute.name." + (String)entry.getKey())));
+                                                            ^
+src\minecraft\net\minecraft\item\ItemStack.java:868: warning: [deprecation] func_74837_a(String,Object...) in I18n has been deprecated
+                        list.add(TextFormatting.RED + " " + I18n.func_74837_a("attribute.modifier.take." + attributemodifier.func_111169_c(), DECIMALFORMAT.format(d1), I18n.func_74838_a("attribute.name." + (String)entry.getKey())));
+                                                                ^
+src\minecraft\net\minecraft\item\ItemStack.java:876: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+            list.add(TextFormatting.BLUE + I18n.func_74838_a("item.unbreakable"));
+                                           ^
+src\minecraft\net\minecraft\item\ItemStack.java:876: warning: [deprecation] func_74838_a(String) in I18n has been deprecated
+            list.add(TextFormatting.BLUE + I18n.func_74838_a("item.unbreakable"));
+                                               ^
+src\minecraft\net\minecraft\item\ItemStack.java:886: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+                list.add(TextFormatting.GRAY + I18n.func_74838_a("item.canBreak"));
+                                               ^
+src\minecraft\net\minecraft\item\ItemStack.java:886: warning: [deprecation] func_74838_a(String) in I18n has been deprecated
+                list.add(TextFormatting.GRAY + I18n.func_74838_a("item.canBreak"));
+                                                   ^
+src\minecraft\net\minecraft\item\ItemStack.java:911: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+                list.add(TextFormatting.GRAY + I18n.func_74838_a("item.canPlace"));
+                                               ^
+src\minecraft\net\minecraft\item\ItemStack.java:911: warning: [deprecation] func_74838_a(String) in I18n has been deprecated
+                list.add(TextFormatting.GRAY + I18n.func_74838_a("item.canPlace"));
+                                                   ^
+src\minecraft\net\minecraft\item\ItemStack.java:933: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+                list.add(I18n.func_74837_a("item.durability", this.getMaxDamage() - this.getDamage(), this.getMaxDamage()));
+                         ^
+src\minecraft\net\minecraft\item\ItemStack.java:933: warning: [deprecation] func_74837_a(String,Object...) in I18n has been deprecated
+                list.add(I18n.func_74837_a("item.durability", this.getMaxDamage() - this.getDamage(), this.getMaxDamage()));
+                             ^
+src\minecraft\net\minecraft\item\ItemStack.java:940: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+                list.add(TextFormatting.DARK_GRAY + I18n.func_74837_a("item.nbt_tags", this.getTag().keySet().size()));
+                                                    ^
+src\minecraft\net\minecraft\item\ItemStack.java:940: warning: [deprecation] func_74837_a(String,Object...) in I18n has been deprecated
+                list.add(TextFormatting.DARK_GRAY + I18n.func_74837_a("item.nbt_tags", this.getTag().keySet().size()));
+                                                        ^
+src\minecraft\net\minecraft\network\PacketBuffer.java:493: warning: [deprecation] order(ByteOrder) in ByteBuf has been deprecated
+    public ByteBuf order(ByteOrder p_order_1_)
+                   ^
+src\minecraft\net\minecraft\network\PacketBuffer.java:488: warning: [deprecation] order() in ByteBuf has been deprecated
+    public ByteOrder order()
+                     ^
+src\minecraft\net\minecraft\network\PacketBuffer.java:490: warning: [deprecation] order() in ByteBuf has been deprecated
+        return this.buf.order();
+                       ^
+src\minecraft\net\minecraft\network\PacketBuffer.java:495: warning: [deprecation] order(ByteOrder) in ByteBuf has been deprecated
+        return this.buf.order(p_order_1_);
+                       ^
+src\minecraft\net\minecraft\entity\Entity.java:2693: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+            return I18n.func_74838_a("entity." + s + ".name");
+                   ^
+src\minecraft\net\minecraft\entity\Entity.java:2693: warning: [deprecation] func_74838_a(String) in I18n has been deprecated
+            return I18n.func_74838_a("entity." + s + ".name");
+                       ^
+src\minecraft\net\minecraft\item\Item.java:309: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+        return I18n.func_74838_a(this.getTranslationKey(p_77657_1_));
+               ^
+src\minecraft\net\minecraft\item\Item.java:309: warning: [deprecation] func_74838_a(String) in I18n has been deprecated
+        return I18n.func_74838_a(this.getTranslationKey(p_77657_1_));
+                   ^
+src\minecraft\net\minecraft\item\Item.java:412: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+        return I18n.func_74838_a(this.func_77657_g(p_77653_1_) + ".name").trim();
+               ^
+src\minecraft\net\minecraft\item\Item.java:412: warning: [deprecation] func_74838_a(String) in I18n has been deprecated
+        return I18n.func_74838_a(this.func_77657_g(p_77653_1_) + ".name").trim();
+                   ^
+src\minecraft\net\minecraft\block\Block.java:875: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+        return I18n.func_74838_a(this.getTranslationKey() + ".name");
+               ^
+src\minecraft\net\minecraft\block\Block.java:875: warning: [deprecation] func_74838_a(String) in I18n has been deprecated
+        return I18n.func_74838_a(this.getTranslationKey() + ".name");
+                   ^
+src\minecraft\net\minecraft\enchantment\Enchantment.java:155: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+        String s = I18n.func_74838_a(this.getName());
+                   ^
+src\minecraft\net\minecraft\enchantment\Enchantment.java:155: warning: [deprecation] func_74838_a(String) in I18n has been deprecated
+        String s = I18n.func_74838_a(this.getName());
+                       ^
+src\minecraft\net\minecraft\enchantment\Enchantment.java:162: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+        return p_77316_1_ == 1 && this.getMaxLevel() == 1 ? s : s + " " + I18n.func_74838_a("enchantment.level." + p_77316_1_);
+                                                                          ^
+src\minecraft\net\minecraft\enchantment\Enchantment.java:162: warning: [deprecation] func_74838_a(String) in I18n has been deprecated
+        return p_77316_1_ == 1 && this.getMaxLevel() == 1 ? s : s + " " + I18n.func_74838_a("enchantment.level." + p_77316_1_);
+                                                                              ^
+src\minecraft\net\minecraft\stats\StatisticsManagerServer.java:46: warning: [deprecation] readFileToString(File) in FileUtils has been deprecated
+                this.statsData.putAll(this.func_150881_a(FileUtils.readFileToString(this.statsFile)));
+                                                                  ^
+src\minecraft\net\minecraft\stats\StatisticsManagerServer.java:63: warning: [deprecation] writeStringToFile(File,String) in FileUtils has been deprecated
+            FileUtils.writeStringToFile(this.statsFile, func_150880_a(this.statsData));
+                     ^
+src\minecraft\net\minecraft\util\DamageSource.java:235: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+        return entitylivingbase != null && I18n.func_94522_b(s1) ? new TextComponentTranslation(s1, new Object[] {entityLivingBaseIn.getDisplayName(), entitylivingbase.getDisplayName()}) : new TextComponentTranslation(s, new Object[] {entityLivingBaseIn.getDisplayName()});
+                                           ^
+src\minecraft\net\minecraft\util\DamageSource.java:235: warning: [deprecation] func_94522_b(String) in I18n has been deprecated
+        return entitylivingbase != null && I18n.func_94522_b(s1) ? new TextComponentTranslation(s1, new Object[] {entityLivingBaseIn.getDisplayName(), entitylivingbase.getDisplayName()}) : new TextComponentTranslation(s, new Object[] {entityLivingBaseIn.getDisplayName()});
+                                               ^
+src\minecraft\net\minecraft\potion\PotionEffect.java:256: warning: [deprecation] compare(Boolean,Boolean) in ComparisonChain has been deprecated
+        return (this.getDuration() <= 32147 || p_compareTo_1_.getDuration() <= 32147) && (!this.isAmbient() || !p_compareTo_1_.isAmbient()) ? ComparisonChain.start().compare(Boolean.valueOf(this.isAmbient()), Boolean.valueOf(p_compareTo_1_.isAmbient())).compare(this.getDuration(), p_compareTo_1_.getDuration()).compare(this.getPotion().getLiquidColor(), p_compareTo_1_.getPotion().getLiquidColor()).result() : ComparisonChain.start().compare(Boolean.valueOf(this.isAmbient()), Boolean.valueOf(p_compareTo_1_.isAmbient())).compare(this.getPotion().getLiquidColor(), p_compareTo_1_.getPotion().getLiquidColor()).result();
+                                                                                                                                                                     ^
+src\minecraft\net\minecraft\potion\PotionEffect.java:256: warning: [deprecation] compare(Boolean,Boolean) in ComparisonChain has been deprecated
+        return (this.getDuration() <= 32147 || p_compareTo_1_.getDuration() <= 32147) && (!this.isAmbient() || !p_compareTo_1_.isAmbient()) ? ComparisonChain.start().compare(Boolean.valueOf(this.isAmbient()), Boolean.valueOf(p_compareTo_1_.isAmbient())).compare(this.getDuration(), p_compareTo_1_.getDuration()).compare(this.getPotion().getLiquidColor(), p_compareTo_1_.getPotion().getLiquidColor()).result() : ComparisonChain.start().compare(Boolean.valueOf(this.isAmbient()), Boolean.valueOf(p_compareTo_1_.isAmbient())).compare(this.getPotion().getLiquidColor(), p_compareTo_1_.getPotion().getLiquidColor()).result();
+                                                                                                                                                                                                                                                                                                                                                                                                                                                  ^
+src\minecraft\net\minecraft\entity\item\EntityItem.java:407: warning: [deprecation] I18n in net.minecraft.util.text.translation has been deprecated
+        return this.hasCustomName() ? this.func_95999_t() : I18n.func_74838_a("item." + this.getItem().getTranslationKey());
+                                                            ^
+src\minecraft\net\minecraft\entity\item\EntityItem.java:407: warning: [deprecation] func_74838_a(String) in I18n has been deprecated
+        return this.hasCustomName() ? this.func_95999_t() : I18n.func_74838_a("item." + this.getItem().getTranslationKey());
+                                                                ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:275: warning: [deprecation] getMaterial(IBlockState) in Block has been deprecated
+            return this.field_177239_a.getMaterial(this);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:280: warning: [deprecation] func_149730_j(IBlockState) in Block has been deprecated
+            return this.field_177239_a.func_149730_j(this);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:285: warning: [deprecation] func_189872_a(IBlockState,Entity) in Block has been deprecated
+            return this.field_177239_a.func_189872_a(this, p_189884_1_);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:290: warning: [deprecation] func_149717_k(IBlockState) in Block has been deprecated
+            return this.field_177239_a.func_149717_k(this);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:295: warning: [deprecation] getLightValue(IBlockState) in Block has been deprecated
+            return this.field_177239_a.getLightValue(this);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:300: warning: [deprecation] func_149751_l(IBlockState) in Block has been deprecated
+            return this.field_177239_a.func_149751_l(this);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:305: warning: [deprecation] func_149710_n(IBlockState) in Block has been deprecated
+            return this.field_177239_a.func_149710_n(this);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:310: warning: [deprecation] getMaterialColor(IBlockState,IBlockAccess,BlockPos) in Block has been deprecated
+            return this.field_177239_a.getMaterialColor(this, worldIn, pos);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:315: warning: [deprecation] rotate(IBlockState,Rotation) in Block has been deprecated
+            return this.field_177239_a.rotate(this, rot);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:320: warning: [deprecation] mirror(IBlockState,Mirror) in Block has been deprecated
+            return this.field_177239_a.mirror(this, mirrorIn);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:325: warning: [deprecation] func_149686_d(IBlockState) in Block has been deprecated
+            return this.field_177239_a.func_149686_d(this);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:330: warning: [deprecation] func_190946_v(IBlockState) in Block has been deprecated
+            return this.field_177239_a.func_190946_v(this);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:335: warning: [deprecation] getRenderType(IBlockState) in Block has been deprecated
+            return this.field_177239_a.getRenderType(this);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:340: warning: [deprecation] func_185484_c(IBlockState,IBlockAccess,BlockPos) in Block has been deprecated
+            return this.field_177239_a.func_185484_c(this, p_185889_1_, p_185889_2_);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:345: warning: [deprecation] func_185485_f(IBlockState) in Block has been deprecated
+            return this.field_177239_a.func_185485_f(this);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:350: warning: [deprecation] func_149637_q(IBlockState) in Block has been deprecated
+            return this.field_177239_a.func_149637_q(this);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:355: warning: [deprecation] func_149721_r(IBlockState) in Block has been deprecated
+            return this.field_177239_a.func_149721_r(this);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:360: warning: [deprecation] canProvidePower(IBlockState) in Block has been deprecated
+            return this.field_177239_a.canProvidePower(this);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:365: warning: [deprecation] getWeakPower(IBlockState,IBlockAccess,BlockPos,EnumFacing) in Block has been deprecated
+            return this.field_177239_a.getWeakPower(this, blockAccess, pos, side);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:370: warning: [deprecation] hasComparatorInputOverride(IBlockState) in Block has been deprecated
+            return this.field_177239_a.hasComparatorInputOverride(this);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:375: warning: [deprecation] getComparatorInputOverride(IBlockState,World,BlockPos) in Block has been deprecated
+            return this.field_177239_a.getComparatorInputOverride(this, worldIn, pos);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:380: warning: [deprecation] getBlockHardness(IBlockState,World,BlockPos) in Block has been deprecated
+            return this.field_177239_a.getBlockHardness(this, worldIn, pos);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:385: warning: [deprecation] getPlayerRelativeBlockHardness(IBlockState,EntityPlayer,World,BlockPos) in Block has been deprecated
+            return this.field_177239_a.getPlayerRelativeBlockHardness(this, player, worldIn, pos);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:390: warning: [deprecation] getStrongPower(IBlockState,IBlockAccess,BlockPos,EnumFacing) in Block has been deprecated
+            return this.field_177239_a.getStrongPower(this, blockAccess, pos, side);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:395: warning: [deprecation] getPushReaction(IBlockState) in Block has been deprecated
+            return this.field_177239_a.getPushReaction(this);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:400: warning: [deprecation] func_176221_a(IBlockState,IBlockAccess,BlockPos) in Block has been deprecated
+            return this.field_177239_a.func_176221_a(this, p_185899_1_, p_185899_2_);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:405: warning: [deprecation] func_180640_a(IBlockState,World,BlockPos) in Block has been deprecated
+            return this.field_177239_a.func_180640_a(this, p_185918_1_, p_185918_2_);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:410: warning: [deprecation] shouldSideBeRendered(IBlockState,IBlockAccess,BlockPos,EnumFacing) in Block has been deprecated
+            return this.field_177239_a.shouldSideBeRendered(this, p_185894_1_, p_185894_2_, p_185894_3_);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:415: warning: [deprecation] func_149662_c(IBlockState) in Block has been deprecated
+            return this.field_177239_a.func_149662_c(this);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:421: warning: [deprecation] func_180646_a(IBlockState,IBlockAccess,BlockPos) in Block has been deprecated
+            return this.field_177239_a.func_180646_a(this, p_185890_1_, p_185890_2_);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:426: warning: [deprecation] func_185477_a(IBlockState,World,BlockPos,AxisAlignedBB,List<AxisAlignedBB>,Entity,boolean) in Block has been deprecated
+            this.field_177239_a.func_185477_a(this, p_185908_1_, p_185908_2_, p_185908_3_, p_185908_4_, p_185908_5_, p_185908_6_);
+                               ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:431: warning: [deprecation] func_185496_a(IBlockState,IBlockAccess,BlockPos) in Block has been deprecated
+            return this.field_177239_a.func_185496_a(this, p_185900_1_, p_185900_2_);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:436: warning: [deprecation] func_180636_a(IBlockState,World,BlockPos,Vec3d,Vec3d) in Block has been deprecated
+            return this.field_177239_a.func_180636_a(this, p_185910_1_, p_185910_2_, p_185910_3_, p_185910_4_);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:441: warning: [deprecation] func_185481_k(IBlockState) in Block has been deprecated
+            return this.field_177239_a.func_185481_k(this);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:446: warning: [deprecation] getOffset(IBlockState,IBlockAccess,BlockPos) in Block has been deprecated
+            return this.field_177239_a.getOffset(this, access, pos);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:451: warning: [deprecation] eventReceived(IBlockState,World,BlockPos,int,int) in Block has been deprecated
+            return this.field_177239_a.eventReceived(this, worldIn, pos, id, param);
+                                      ^
+src\minecraft\net\minecraft\block\state\BlockStateContainer.java:456: warning: [deprecation] func_189540_a(IBlockState,World,BlockPos,Block,BlockPos) in Block has been deprecated
+            this.field_177239_a.func_189540_a(this, p_189546_1_, p_189546_2_, p_189546_3_, p_189546_4_);
+                               ^
+Note: Some input files additionally use or override a deprecated API.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+100 warnings

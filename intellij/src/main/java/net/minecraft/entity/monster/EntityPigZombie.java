@@ -1,0 +1,271 @@
+package net.minecraft.entity.monster;
+
+import java.util.UUID;
+import javax.annotation.Nullable;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIHurtByTarget;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.IAttributeInstance;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.util.datafix.DataFixer;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.EnumDifficulty;
+import net.minecraft.world.World;
+import net.minecraft.world.storage.loot.LootTableList;
+
+public class EntityPigZombie extends EntityZombie
+{
+    private static final UUID ATTACK_SPEED_BOOST_MODIFIER_UUID = UUID.fromString("49455A49-7EC5-45BA-B886-3B90B23A1718");
+    private static final AttributeModifier ATTACK_SPEED_BOOST_MODIFIER = (new AttributeModifier(ATTACK_SPEED_BOOST_MODIFIER_UUID, "Attacking speed boost", 0.05D, 0)).setSaved(false);
+    private int angerLevel;
+    private int randomSoundDelay;
+    private UUID angerTargetUUID;
+
+    public EntityPigZombie(World p_i1739_1_)
+    {
+        super(p_i1739_1_);
+        this.field_70178_ae = true;
+    }
+
+    /**
+     * Hint to AI tasks that we were attacked by the passed EntityLivingBase and should retaliate. Is not guaranteed to
+     * change our actual active target (for example if we are currently busy attacking someone else)
+     */
+    public void setRevengeTarget(@Nullable EntityLivingBase livingBase)
+    {
+        super.setRevengeTarget(livingBase);
+
+        if (livingBase != null)
+        {
+            this.angerTargetUUID = livingBase.getUniqueID();
+        }
+    }
+
+    protected void applyEntityAI()
+    {
+        this.targetSelector.addGoal(1, new EntityPigZombie.AIHurtByAggressor(this));
+        this.targetSelector.addGoal(2, new EntityPigZombie.AITargetAggressor(this));
+    }
+
+    protected void registerAttributes()
+    {
+        super.registerAttributes();
+        this.getAttribute(SPAWN_REINFORCEMENTS_CHANCE).setBaseValue(0.0D);
+        this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.23000000417232513D);
+        this.getAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(5.0D);
+    }
+
+    protected void updateAITasks()
+    {
+        IAttributeInstance iattributeinstance = this.getAttribute(SharedMonsterAttributes.MOVEMENT_SPEED);
+
+        if (this.isAngry())
+        {
+            if (!this.isChild() && !iattributeinstance.hasModifier(ATTACK_SPEED_BOOST_MODIFIER))
+            {
+                iattributeinstance.applyModifier(ATTACK_SPEED_BOOST_MODIFIER);
+            }
+
+            --this.angerLevel;
+        }
+        else if (iattributeinstance.hasModifier(ATTACK_SPEED_BOOST_MODIFIER))
+        {
+            iattributeinstance.removeModifier(ATTACK_SPEED_BOOST_MODIFIER);
+        }
+
+        if (this.randomSoundDelay > 0 && --this.randomSoundDelay == 0)
+        {
+            this.playSound(SoundEvents.ENTITY_ZOMBIE_PIGMAN_ANGRY, this.getSoundVolume() * 2.0F, ((this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F) * 1.8F);
+        }
+
+        if (this.angerLevel > 0 && this.angerTargetUUID != null && this.getRevengeTarget() == null)
+        {
+            EntityPlayer entityplayer = this.world.func_152378_a(this.angerTargetUUID);
+            this.setRevengeTarget(entityplayer);
+            this.attackingPlayer = entityplayer;
+            this.recentlyHit = this.getRevengeTimer();
+        }
+
+        super.updateAITasks();
+    }
+
+    public boolean func_70601_bi()
+    {
+        return this.world.getDifficulty() != EnumDifficulty.PEACEFUL;
+    }
+
+    public boolean func_70058_J()
+    {
+        return this.world.func_72917_a(this.getBoundingBox(), this) && this.world.func_184144_a(this, this.getBoundingBox()).isEmpty() && !this.world.containsAnyLiquid(this.getBoundingBox());
+    }
+
+    public static void func_189781_b(DataFixer p_189781_0_)
+    {
+        EntityLiving.func_189752_a(p_189781_0_, EntityPigZombie.class);
+    }
+
+    public void func_70014_b(NBTTagCompound p_70014_1_)
+    {
+        super.func_70014_b(p_70014_1_);
+        p_70014_1_.putShort("Anger", (short)this.angerLevel);
+
+        if (this.angerTargetUUID != null)
+        {
+            p_70014_1_.putString("HurtBy", this.angerTargetUUID.toString());
+        }
+        else
+        {
+            p_70014_1_.putString("HurtBy", "");
+        }
+    }
+
+    /**
+     * (abstract) Protected helper method to read subclass entity data from NBT.
+     */
+    public void readAdditional(NBTTagCompound compound)
+    {
+        super.readAdditional(compound);
+        this.angerLevel = compound.getShort("Anger");
+        String s = compound.getString("HurtBy");
+
+        if (!s.isEmpty())
+        {
+            this.angerTargetUUID = UUID.fromString(s);
+            EntityPlayer entityplayer = this.world.func_152378_a(this.angerTargetUUID);
+            this.setRevengeTarget(entityplayer);
+
+            if (entityplayer != null)
+            {
+                this.attackingPlayer = entityplayer;
+                this.recentlyHit = this.getRevengeTimer();
+            }
+        }
+    }
+
+    /**
+     * Called when the entity is attacked.
+     */
+    public boolean attackEntityFrom(DamageSource source, float amount)
+    {
+        if (this.isInvulnerableTo(source))
+        {
+            return false;
+        }
+        else
+        {
+            Entity entity = source.getTrueSource();
+
+            if (entity instanceof EntityPlayer)
+            {
+                this.func_70835_c(entity);
+            }
+
+            return super.attackEntityFrom(source, amount);
+        }
+    }
+
+    private void func_70835_c(Entity p_70835_1_)
+    {
+        this.angerLevel = 400 + this.rand.nextInt(400);
+        this.randomSoundDelay = this.rand.nextInt(40);
+
+        if (p_70835_1_ instanceof EntityLivingBase)
+        {
+            this.setRevengeTarget((EntityLivingBase)p_70835_1_);
+        }
+    }
+
+    public boolean isAngry()
+    {
+        return this.angerLevel > 0;
+    }
+
+    protected SoundEvent getAmbientSound()
+    {
+        return SoundEvents.ENTITY_ZOMBIE_PIGMAN_AMBIENT;
+    }
+
+    protected SoundEvent getHurtSound(DamageSource damageSourceIn)
+    {
+        return SoundEvents.ENTITY_ZOMBIE_PIGMAN_HURT;
+    }
+
+    protected SoundEvent getDeathSound()
+    {
+        return SoundEvents.ENTITY_ZOMBIE_PIGMAN_DEATH;
+    }
+
+    @Nullable
+    protected ResourceLocation getLootTable()
+    {
+        return LootTableList.field_186384_ai;
+    }
+
+    public boolean processInteract(EntityPlayer player, EnumHand hand)
+    {
+        return false;
+    }
+
+    /**
+     * Gives armor or weapon for entity based on given DifficultyInstance
+     */
+    protected void setEquipmentBasedOnDifficulty(DifficultyInstance difficulty)
+    {
+        this.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.GOLDEN_SWORD));
+    }
+
+    protected ItemStack getSkullDrop()
+    {
+        return ItemStack.EMPTY;
+    }
+
+    public boolean isPreventingPlayerRest(EntityPlayer playerIn)
+    {
+        return this.isAngry();
+    }
+
+    static class AIHurtByAggressor extends EntityAIHurtByTarget
+    {
+        public AIHurtByAggressor(EntityPigZombie p_i45828_1_)
+        {
+            super(p_i45828_1_, true);
+        }
+
+        protected void func_179446_a(EntityCreature p_179446_1_, EntityLivingBase p_179446_2_)
+        {
+            super.func_179446_a(p_179446_1_, p_179446_2_);
+
+            if (p_179446_1_ instanceof EntityPigZombie)
+            {
+                ((EntityPigZombie)p_179446_1_).func_70835_c(p_179446_2_);
+            }
+        }
+    }
+
+    static class AITargetAggressor extends EntityAINearestAttackableTarget<EntityPlayer>
+    {
+        public AITargetAggressor(EntityPigZombie p_i45829_1_)
+        {
+            super(p_i45829_1_, EntityPlayer.class, true);
+        }
+
+        public boolean shouldExecute()
+        {
+            return ((EntityPigZombie)this.goalOwner).isAngry() && super.shouldExecute();
+        }
+    }
+}
